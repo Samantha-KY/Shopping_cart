@@ -7,7 +7,11 @@ function UseFetch(url) {
     const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(url).then((response) => {
+    axios.get(url, {headers:{
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    }})
+    .then((response) => {
         setData(response.data);
     })
     .catch((err)=> {

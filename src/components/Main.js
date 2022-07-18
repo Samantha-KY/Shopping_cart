@@ -9,7 +9,7 @@ export default function Main(props) {
     return localData ? JSON.parse(localData) : [];
   });
 
-  const {data} = UseFetch("https://fakestoreapi.com/products");
+  const {data} = UseFetch("https://first-shopping-cart-api.herokuapp.com/products");
 
   const onAddToCart = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
@@ -24,12 +24,12 @@ export default function Main(props) {
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems))
   }, [cartItems]);
-  
+  console.log(data?.data,"........");
   return (
     <main >
       <h2>Products</h2>
       <div className="row center col-2">
-        {data.map((product) => (
+        {data?.data?.map((product) => (
           <Product key={product.id} product={product} onAddToCart={onAddToCart}></Product>
         ))}
       </div>

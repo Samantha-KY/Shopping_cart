@@ -6,7 +6,7 @@ import UseFetch from '../data';
 
   const params=useParams()
   const [user, setUser] = React.useState([])
-  const {data} = UseFetch(`https://fakestoreapi.com/products/${params.id}`);
+  const {data} = UseFetch(`https://first-shopping-cart-api.herokuapp.com/products/${params.id}`);
   
   const [cartItems, setCartItems] = useState(() => {
     const localData = localStorage.getItem('cartItems');
