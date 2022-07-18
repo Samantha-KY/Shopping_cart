@@ -5,7 +5,7 @@ function UseFetch(url) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-
+const getProduct =
   useEffect(() => {
     axios.get(url, {headers:{
       'Access-Control-Allow-Origin': '*',

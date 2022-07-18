@@ -6,7 +6,7 @@ import UseFetch from '../data';
 
   const params=useParams()
   const [user, setUser] = React.useState([])
-  const {data} = UseFetch(`https://first-shopping-cart-api.herokuapp.com/products/${params.id}`);
+  const {data} = UseFetch(`https://first-shopping-cart-api.herokuapp.com/products/${params.product_id}`);
   
   const [cartItems, setCartItems] = useState(() => {
     const localData = localStorage.getItem('cartItems');
@@ -38,9 +38,9 @@ import UseFetch from '../data';
        {
        user && <div key={data.id}>
       <img className="small" src={data.image} alt={data.name} />
-      <h3>Name: {data.title}</h3>
-      <h3>Description: {data.description}</h3>
-      <h3>category: {data.category}</h3>
+      <h3>Name: {data.name}</h3>
+      {/* <h3>Description: {data.description}</h3> */}
+      {/* <h3>category: {data.category}</h3> */}
       <div>RWF: {data.price}</div>
       <div>
         <Link to='/product'>
