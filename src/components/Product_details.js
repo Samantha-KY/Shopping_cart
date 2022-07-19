@@ -8,7 +8,7 @@ import UseFetch from '../helpers/getProductById';
   const [user, setUser] = React.useState([])
   const {data} = UseFetch(`https://first-shopping-cart-api.herokuapp.com/products/${params.id}`);
 
-  console.log(data, "=====");
+  console.log(data?.data, "=====");
 
   const [cartItems, setCartItems] = useState(() => {
     const localData = localStorage.getItem('cartItems');
@@ -38,7 +38,7 @@ import UseFetch from '../helpers/getProductById';
       return (
         <>
        {
-       user && <div key={data.product_id}>
+       user && <div key={data.id}>
       <img className="small" src={data.image} alt={data.name} />
       <h3>Name: {data.name}</h3>
       {/* <h3>Description: {data.description}</h3> */}
