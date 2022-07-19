@@ -38,12 +38,12 @@ import UseFetch from '../helpers/getProductById';
       return (
         <>
        {
-       user && <div key={data.id}>
-      <img className="small" src={data.image} alt={data.name} />
-      <h3>Name: {data.name}</h3>
+       user && <div key={data?.product_id}>
+      <img className="small" src={data?.image} alt={data?.name} />
+      <h3>Name: {data?.name}</h3>
       {/* <h3>Description: {data.description}</h3> */}
       {/* <h3>category: {data.category}</h3> */}
-      <div>RWF: {data.price}</div>
+      <div>RWF: {data?.price}</div>
       <div>
         <Link to='/product'>
         <button >Back home</button>
