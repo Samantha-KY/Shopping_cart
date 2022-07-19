@@ -6,7 +6,7 @@ import UseFetch from '../helpers/getProductById';
 
   const params=useParams()
 
-  console.log(params, '==========');
+  console.log(params,'====');
   const [user, setUser] = React.useState([])
   const {data} = UseFetch('https://first-shopping-cart-api.herokuapp.com/product', params.product_id);
   

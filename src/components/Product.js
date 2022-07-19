@@ -5,7 +5,7 @@ export default function Product(props) {
   const { product, onAddToCart } = props;
   return (
     <div key={product.id}>
-      <Link to={`/product/${product.id}`}>
+      <Link to={`/product/${product.product_id}`}>
       <img className="small" src={product.image} alt={product.name} />
       </Link>
       <h3>{product.title}</h3>
