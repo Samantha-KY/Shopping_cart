@@ -5,21 +5,19 @@ import UseFetch from '../helpers/getProductById';
  function ProductView () {  
 
   const params=useParams()
-
-  console.log(params,'====');
   const [user, setUser] = React.useState([])
-  const {data} = UseFetch(`https://first-shopping-cart-api.herokuapp.com/product/${params.product_id}`);
+  const {data} = UseFetch(`https://first-shopping-cart-api.herokuapp.com/products/${params.product_id}`);
   
   const [cartItems, setCartItems] = useState(() => {
     const localData = localStorage.getItem('cartItems');
     return localData ? JSON.parse(localData) : [];
   });
   const onAdd = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = cartItems.find((x) => x.id === product.product_id);
     if (exist) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x));
+          x.id === product.product_id ? { ...exist, qty: exist.qty + 1 } : x));
     } else {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }

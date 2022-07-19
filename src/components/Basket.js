@@ -7,34 +7,34 @@ export default function Basket() {
     return localData ? JSON.parse(localData) : [];
   });
   const onAddToCart = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = cartItems.find((x) => x.id === product.product_id);
     if (exist) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x));
+          x.id === product.product_id ? { ...exist, qty: exist.qty + 1 } : x));
     } else {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
   };
   const onRemoveToCart = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = cartItems.find((x) => x.id === product.product_id);
     if (exist.qty !== 1) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
+      setCartItems(cartItems.filter((x) => x.id !== product.product_id));
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x));
+          x.id === product.product_id ? { ...exist, qty: exist.qty - 1 } : x));
     }
   };
 
   const onSubToCart = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = cartItems.find((x) => x.id === product.product_id);
     if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
+      setCartItems(cartItems.filter((x) => x.id !== product.product_id));
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x));
+          x.id === product.product_id ? { ...exist, qty: exist.qty - 1 } : x));
     }
   };
 
@@ -53,8 +53,8 @@ export default function Basket() {
       <div>
         {cartItems.length === 0 && <div>Cart is empty</div>}
         {cartItems.map((item) => (
-          <div key={item.id} className="row">
-            <div className="col-2">{item.title}</div>
+          <div key={item.product_id} className="row">
+            <div className="col-2">{item.name}</div>
             <div className="col-2">
               <button onClick={() => onRemoveToCart(item)} className="remove">
                 Remove
