@@ -8,7 +8,7 @@ function UseFetch(url) {
     
   useEffect(() => {
     axios.get(url, {headers:{
-      // 'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
     }})
     .then((response) => {
