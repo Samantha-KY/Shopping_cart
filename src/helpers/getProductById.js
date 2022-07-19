@@ -1,16 +1,17 @@
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 
-function UseFetch(url, product_id) {
+function UseFetch(url) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     
   useEffect(() => {
-    axios.get(url, null,{headers:{
+    axios.get(url, null,{params: {product_id}},
+        {headers:{
       // 'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
-    }}, {params: {product_id}})
+    }} )
     .then((response) => {
         setData(response.data);
     })
