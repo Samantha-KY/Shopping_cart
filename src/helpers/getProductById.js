@@ -7,7 +7,7 @@ function UseFetch(url, product_id) {
     const [error, setError] = useState(null);
     
   useEffect(() => {
-    axios.get(url,
+    axios.get(`${url}/${product_id}`,
         {headers:{
       // 'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
