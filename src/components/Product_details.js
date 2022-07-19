@@ -5,8 +5,10 @@ import UseFetch from '../helpers/getProductById';
  function ProductView () {  
 
   const params=useParams()
+
+  console.log(params, '==========');
   const [user, setUser] = React.useState([])
-  const {data} = UseFetch('https://first-shopping-cart-api.herokuapp.com/products', params.product_id);
+  const {data} = UseFetch('https://first-shopping-cart-api.herokuapp.com/product', params.product_id);
   
   const [cartItems, setCartItems] = useState(() => {
     const localData = localStorage.getItem('cartItems');
