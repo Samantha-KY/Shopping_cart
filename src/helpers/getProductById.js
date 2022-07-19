@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 
-function UseFetch(url) {
+function UseFetch(url, product_id) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ function UseFetch(url) {
     axios.get(url, {headers:{
       // 'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
-    }}, {params: {product_id}})
+    }}, {params: {product_id: product_id}})
     .then((response) => {
         setData(response.data);
     })
