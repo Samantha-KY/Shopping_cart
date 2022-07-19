@@ -1,6 +1,6 @@
 import React from 'react';
 import Product from './Product';
-import UseFetch from '../data';
+import UseFetch from '../helpers/getProducts';
 import { useState, useEffect} from 'react';
 
 export default function Main(props) {

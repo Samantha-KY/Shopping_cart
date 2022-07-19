@@ -1,7 +1,7 @@
 import Header from './components/Header';
 import Main from './components/Main';
 import Basket from './components/Basket';
-import UseFetch from './data';
+import UseFetch from './helpers/getProducts';
 import { useState, useEffect} from 'react';
 import ProductView from './components/Product_details';
 import Buy from './components/Buy';

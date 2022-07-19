@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
-import UseFetch from '../data';
+import UseFetch from '../helpers/getProductById';
 
  function ProductView () {  
 
