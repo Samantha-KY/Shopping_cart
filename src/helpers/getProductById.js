@@ -10,7 +10,7 @@ function UseFetch(url) {
     axios.get(url, {headers:{
       // 'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
-    }}, {params: product_id})
+    }}, {params: {product_id}})
     .then((response) => {
         setData(response.data);
     })
