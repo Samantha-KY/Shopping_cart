@@ -2,13 +2,15 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 
 // function UseFetch(url) {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+    
   
 
-function getProduct () {
-  useEffect((url) => {
+function getProduct (url) {
+  const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+  useEffect(() => {
     axios.get(url, {headers:{
       'Access-Control-Allow-Origin': 'GET',
       'Content-Type': 'application/json',
@@ -26,8 +28,11 @@ function getProduct () {
   return {data, loading, error};
 }
 
-  function createProduct (){
-  useEffect((url) => {
+  function createProduct (url){
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+  useEffect(() => {
     axios.get(url, {headers:{
       'Access-Control-Allow-Origin': 'POST',
       'Content-Type': 'application/json',
@@ -45,12 +50,15 @@ function getProduct () {
   return {data, loading, error};  
 }
 
-  function getProductById () {
-  useEffect((url) => {
+  function getProductById (url) {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+  useEffect(() => {
     axios.get(url, {headers:{
       'Access-Control-Allow-Origin': 'GET',
       'Content-Type': 'application/json',
-    }}, {params: { id: product_id}})
+    }}, {params: { product_id: product_id}})
     .then((response) => {
         setData(response.data);
     })
@@ -64,12 +72,15 @@ function getProduct () {
   return {data, loading, error};  
 }
 
-  function updateProductById (){
-  useEffect((url) => {
+  function updateProductById (url){
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+  useEffect(() => {
     axios.get(url, {headers:{
       'Access-Control-Allow-Origin': 'PATCH',
       'Content-Type': 'application/json',
-    }}, {params: { id: product_id}})
+    }}, {params: { product_id: product_id}})
     .then((response) => {
         setData(response.data);
     })
@@ -83,12 +94,15 @@ function getProduct () {
   return {data, loading, error};
   }
 
-  function deleteProductById () {
+  function deleteProductById (url) {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
   useEffect((url) => {
     axios.get(url, {headers:{
       'Access-Control-Allow-Origin': 'DELETE',
       'Content-Type': 'application/json',
-    }}, {params: { id: product_id}})
+    }}, {params: { product_id: product_id}})
     .then((response) => {
         setData(response.data);
     })
