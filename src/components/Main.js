@@ -1,7 +1,6 @@
 import React from 'react';
 import Product from './Product';
-// import UseFetch from '../data';
-import axioss from '../data';
+import UseFetch from '../data';
 import { useState, useEffect} from 'react';
 
 export default function Main(props) {
@@ -10,7 +9,7 @@ export default function Main(props) {
     return localData ? JSON.parse(localData) : [];
   });
 
-  const {data} =axioss.getProduct("https://first-shopping-cart-api.herokuapp.com/products");
+  const {data} = UseFetch("https://first-shopping-cart-api.herokuapp.com/products");
 
   const onAddToCart = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);

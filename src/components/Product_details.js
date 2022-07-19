@@ -1,13 +1,12 @@
 import React,{useState, useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
-import axioss from '../data';
-
+import UseFetch from '../data';
 
  function ProductView () {  
 
   const params=useParams()
   const [user, setUser] = React.useState([])
-  const {data} = axioss.getProductById(`https://first-shopping-cart-api.herokuapp.com/products/${params.product_id}`);
+  const {data} = UseFetch(`https://first-shopping-cart-api.herokuapp.com/products/${params.product_id}`);
   
   const [cartItems, setCartItems] = useState(() => {
     const localData = localStorage.getItem('cartItems');
