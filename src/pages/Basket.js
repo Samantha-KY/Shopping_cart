@@ -1,11 +1,13 @@
 import React,{useEffect, useState} from 'react';
+import { createNewCart } from '../helpers/getProductById';
 
 export default function Basket() {
 
   const [cartItems, setCartItems] = useState(() => {
-    const localData = localStorage.getItem('cartItems');
-    return localData ? JSON.parse(localData) : [];
+    const CartData = createNewCart.getItem('cartItems');
+    return CartData ? JSON.parse(CartData) : [];
   });
+
   const onAddToCart = (product) => {
     const exist = cartItems.find((x) => x.id === product.product_id);
     console.log(product?.product,'====');

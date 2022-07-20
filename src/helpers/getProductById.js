@@ -1,29 +1,21 @@
-import axios from 'axios'
-import {useState, useEffect} from 'react'
+const pool = require('../pages/db')
 
-function UseFetch(url) {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-    
-  useEffect(() => {
-    axios.get(url,
-        {headers:{
-      'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'application/json',
-    }} )
-    .then((response) => {
-        setData(response.data);
-    })
-    .catch((err)=> {
-        setError(err);
-    }) 
-    .finally(() => {
-        setLoading(false);
-    })
-  }, [url]);
-  return {data, loading, error};
+
+const createNewCart= async (req, res, next) => {
+  const {name, price} = req.body;
+  const {id} = req.params;
+          const newProduct = await pool.query(
+              "INSERT INTO cart (name, price) VALUES ($1, $2) WHERE product_id = $3",
+              [name, price,id]
+          );
+  // }
+
+if(newProduct.rowCount === 0) {
+  return res.json({status: 400, message: 'bad request'});
+}
+return res.json({status: 200, message: 'product created', data: newProduct.rows});
 }
 
-export default UseFetch;
-
+    module.exports = {
+      createNewCart
+    }
