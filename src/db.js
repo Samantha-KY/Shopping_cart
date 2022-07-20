@@ -1,5 +1,5 @@
 // const Pool = require('pg').Pool;
-import Pool from 'pg';
+import {Pool} from 'pg';
 // const pool = new Pool({
 //     user: process.env.USER,
 //     password: process.env.PASSWORD,
