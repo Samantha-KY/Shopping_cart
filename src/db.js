@@ -1,4 +1,4 @@
-const Pool = require('../node_modules/pg-pool').Pool;
+const Pool = require('pg').Pool;
 // import {Pool} from 'pg';
 // const pool = new Pool({
 //     user: process.env.USER,
