@@ -1,5 +1,5 @@
-// const Pool = require('pg').Pool;
-import {Pool} from 'pg';
+const Pool = require('pg').Pool;
+// import {Pool} from 'pg';
 // const pool = new Pool({
 //     user: process.env.USER,
 //     password: process.env.PASSWORD,
@@ -8,7 +8,7 @@ import {Pool} from 'pg';
 //     port: process.env.PORT
 // })
 
-const pool = new Pool.Pool({
+const pool = new Pool({
     // 
     connectionString: process.env.DATABASE_URL,
     ssl: { 
