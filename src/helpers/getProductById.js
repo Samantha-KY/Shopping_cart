@@ -1,4 +1,5 @@
-const pool = require('../pages/db')
+// const pool = require('../pages/db')
+import pool from '../pages/db';
 
 
 const createNewCart= async (req, res, next) => {
