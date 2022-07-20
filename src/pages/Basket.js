@@ -8,7 +8,7 @@ export default function Basket() {
   });
   const onAddToCart = (product) => {
     const exist = cartItems.find((x) => x.id === product.product_id);
-    console.log(exist,'====');
+    console.log(product,'====');
     if (exist) {
       setCartItems(
         cartItems.map((x) =>
