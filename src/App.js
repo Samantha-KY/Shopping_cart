@@ -1,12 +1,12 @@
-import Header from './components/Header';
-import Main from './components/Main';
-import Basket from './components/Basket';
+import Header from './pages/Header';
+import Main from './pages/Main';
+import Basket from './pages/Basket';
 import UseFetch from './helpers/getProducts';
 import { useState, useEffect} from 'react';
-import ProductView from './components/Product_details';
-import Buy from './components/Buy';
+import ProductView from './pages/Product_details';
+import Buy from './pages/Buy';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import PageNotFound from './components/PageNotFound';
+import PageNotFound from './pages/PageNotFound';
 
 
 function App() {
