@@ -4,8 +4,8 @@ import { createNewCart } from '../helpers/getProductById';
 export default function Basket() {
 
   const [cartItems, setCartItems] = useState(() => {
-    const CartData = createNewCart.getItem('cartItems');
-    return CartData ? JSON.parse(CartData) : [];
+    const localData = localStorage.getItem('cartItems');
+    return localData ? JSON.parse(localData) : [];
   });
 
   const onAddToCart = (product) => {

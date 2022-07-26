@@ -7,13 +7,13 @@ import ProductView from './pages/Product_details';
 import Buy from './pages/Buy';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import PageNotFound from './pages/PageNotFound';
+import {QueryClientProvider, QueryClient} from 'react-query';
 
 
+const queryClient = new QueryClient();
 function App() {
-
-  
-
   return (
+    <QueryClientProvider client={queryClient}>
     <BrowserRouter>
     <div className="App">
       <Header></Header>
@@ -29,6 +29,7 @@ function App() {
       </div>
     </div>
     </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 
